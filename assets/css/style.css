@@ -290,10 +290,8 @@ main#content.nopad { border-top: 0; }
 .page-head .lede { font-size: 18px; max-width: 46em; }
 
 .widget-title {
-	font-size: 22px;
-	margin-bottom: 20px;
-	padding-bottom: 12px;
-	border-bottom: 1px solid var(--rule);
+	font-size: 30px;
+	margin-bottom: 15px;
 }
 .widget-title span { text-transform: lowercase; }
 
@@ -358,6 +356,27 @@ main#content.nopad { border-top: 0; }
 .person dl { margin: 16px 0 0; font-size: 14px; }
 .person dt { color: var(--ink); }
 .person dd { margin: 0 0 10px; }
+
+/* personnel listing (Our Team) */
+.person-list {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+	align-items: start;
+}
+@media only screen and (max-width: 700px) {
+	.person-list { grid-template-columns: 1fr; }
+}
+.item-thumb { display: block; margin-bottom: 15px; }
+.item-thumb h3 {
+	font-size: 16px;
+	font-weight: 700;
+	margin: 0;
+	padding: 20px 15px;
+	color: #fff;
+	background: rgba(231, 66, 57, .75);
+}
+.item-thumb:hover h3 { background: var(--accent); color: #fff; }
 
 .btn {
 	display: inline-block;
