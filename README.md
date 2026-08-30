@@ -19,8 +19,15 @@ python3 -m http.server 8000
 
 ## Deploying
 
-Any static host works. For GitHub Pages: **Settings → Pages → Source: Deploy from a branch →
-`main` / `/ (root)`**. `.nojekyll` is committed so Pages serves the files verbatim.
+Any static host works — there is no build step, and every path in the HTML is relative.
+
+**Vercel:** import the repo at [vercel.com/new](https://vercel.com/new) with **Framework Preset:
+Other**, an empty build command and `./` as the output directory. `vercel.json` sets
+`trailingSlash` so that `/team/` is served directly instead of redirecting to `/team`, matching
+the site's internal link style.
+
+**GitHub Pages:** **Settings → Pages → Source: Deploy from a branch → `main` / `/ (root)`**.
+`.nojekyll` is committed so Pages serves the files verbatim.
 
 ## Structure
 
@@ -82,8 +89,9 @@ Deliberate, and easy to undo:
 
 The originals are the largest versions the source server has:
 
-- `assets/img/piedras.jpg` is only **240×240** but is used as a full-width hero slide. It is
-  visibly soft. A high-resolution replacement (ideally 1920×550) would fix it.
+- `assets/img/piedras.jpg` has been replaced with a **4608×3456** original, so the hero slide is
+  no longer soft. It is a 1.9 MB file served above the fold at roughly 1920×550 — downscaling it
+  would cut the home page's weight substantially.
 - `assets/img/accounting-tax.jpg` is only **320×214**.
 - There are **no team photographs** on the original site, so the team pages are text-only.
 
